@@ -11,3 +11,4 @@ core(03).py
 core(04).py
 test.py
 title.py
+.gitignore
