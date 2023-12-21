@@ -45,6 +45,8 @@ def generate_data(topic):
 
     data = json.loads(response.text.strip("`json "))
 
+    print(data)
+
     return data
 
 def check_word(current, horizontal):
@@ -127,7 +129,7 @@ current_grid = [[' ' for _ in range(current_grid_SIZE)] for _ in range(current_g
 score_grid = [[' ' for _ in range(current_grid_SIZE)] for _ in range(current_grid_SIZE)]
 
 # acutal grid
-# actual_grid = generate_grid(generate_data("Machine Learning"))
+# actual_grid = generate_grid(generate_data("Structral Desgin"))
 actual_grid = [
     [' ', ' ', ' ', 'h', 'y', 'p', 'e', 'r', 't', 'u', 'n', 'i', 'n', 'g', ' '], 
     [' ', ' ', ' ', ' ', 'p', 'r', 'o', 'g', 'r', 'a', 'm', ' ', ' ', ' ', ' '], 
