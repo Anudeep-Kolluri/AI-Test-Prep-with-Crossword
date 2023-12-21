@@ -1,7 +1,7 @@
 actual_grid = [
     [' ', ' ', ' ', 'h', 'y', 'p', 'e', 'r', 't', 'u', 'n', 'i', 'n', 'g', ' '], 
     [' ', ' ', ' ', ' ', 'p', 'r', 'o', 'g', 'r', 'a', 'm', ' ', ' ', ' ', ' '], 
-    [' ', ' ', ' ', 'd', ' ', 'c', 'o', 'd', 'e', ' ', ' ', ' ', ' ', ' ', ' '], 
+    [' ', ' ', ' ', 'd', ' ', 'c', 'o', 'd', 'e', 'e', 'e', ' ', ' ', ' ', ' '], 
     [' ', ' ', ' ', 'e', ' ', ' ', ' ', ' ', ' ', 'a', ' ', ' ', 'o', ' ', ' '], 
     [' ', ' ', ' ', 'b', 'b', ' ', ' ', ' ', ' ', 'l', ' ', ' ', 'v', ' ', ' '], 
     [' ', 'j', ' ', 'u', 'i', ' ', 'j', ' ', ' ', 'g', ' ', ' ', 'e', ' ', ' '], 
@@ -19,7 +19,7 @@ actual_grid = [
 current_grid = [
     [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '], 
     [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '], 
-    [' ', ' ', ' ', 'D', ' ', 'c', 'o', 'd', 'e', ' ', ' ', ' ', ' ', ' ', ' '], 
+    [' ', ' ', ' ', 'D', ' ', 'c', 'o', 'd', 'e', 'e', 'e', ' ', ' ', ' ', ' '], 
     [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '], 
     [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '], 
     [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '], 
@@ -33,21 +33,40 @@ current_grid = [
     [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '], 
     [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']]
 
-current_pos = [2, 5]
 
 current_grid_SIZE = 15
 
+score_grid = [[' ' for _ in range(current_grid_SIZE)] for _ in range(current_grid_SIZE)]
+
+
+current_pos = [2, 12]
+
 def check_word(current, horizontal):
-    given_word = ""
-    actual_word = ""
-    for i in range(current[1], current_grid_SIZE):
-        if actual_grid[current[0]][i] != ' ':
-            given_word += current_grid[current[0]][i]
-            actual_word += actual_grid[current[0]][i]
-        else:
-            break
-    print(given_word + actual_word)
-    return given_word == actual_word
+    first_flag = False
+    if not first_flag:
+        if actual_grid[current[0]][current[1]] == ' ':
+            first_flag = True
+            current[1] -= 1
+        given_word = ""
+        actual_word = ""
+        for i in range(current[1], -1, -1):
+            if actual_grid[current[0]][i] != ' ':
+                given_word += current_grid[current[0]][i]
+                actual_word += actual_grid[current[0]][i]
+            else:
+                break
+        print(given_word + actual_word)
+        return given_word == actual_word, len(actual_word)
+
+def score(current, size, horizontal):
+    if horizontal:
+            score_grid[current[0]][current[1]-size:current[1]] = ['g'] * size
+    
+    print(score_grid)
 
 
-print(check_word(current_pos, horizontal=True))
+
+correct, size = check_word(current_pos, horizontal=True)
+
+if correct:
+    print(score(current_pos, size, horizontal=True))

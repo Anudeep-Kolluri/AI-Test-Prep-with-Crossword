@@ -1,3 +1,11 @@
+# This code is unfinished version of AI crossword
+
+# Why unfinished
+## unable to show across and down in right side of the ui
+## unable to develop a crossword algorithm
+## unable to differentiate across words and down words
+
+
 import pygame
 import sys
 import json
@@ -19,7 +27,6 @@ def load_api_key(file_path='key.json'):
         print(f"Error: Unable to decode JSON from file '{file_path}'.")
         return None
 
-
 def generate_data(topic):
     api_key = load_api_key('key.json')
 
@@ -39,10 +46,6 @@ def generate_data(topic):
     data = json.loads(response.text.strip("`json "))
 
     return data
-
-
-
-
 
 def check_word(current, horizontal):
     if horizontal:
@@ -72,7 +75,6 @@ def check_word(current, horizontal):
         print(given_word + actual_word)
         return given_word == actual_word, len(actual_word)
     
-
 def score(current, size, correct, horizontal):
     if horizontal:
             if correct:
@@ -86,8 +88,6 @@ def score(current, size, correct, horizontal):
         else:
             for i in range(current[0]-size+1, current[0]+1):
                 score_grid[i][current[1]] = 'r'
-
-
 
 def generate_grid(data):
     
@@ -256,7 +256,7 @@ while running:
 
 
 
-
+            # Check if the word is correct or not by showing red or green
             letter = current_grid[y][x]
             if letter != ' ':
                 if score_grid[y][x] == 'g':
