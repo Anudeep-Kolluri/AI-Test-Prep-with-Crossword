@@ -131,7 +131,7 @@ score_grid = [[' ' for _ in range(current_grid_SIZE)] for _ in range(current_gri
 # acutal grid
 # actual_grid = generate_grid(generate_data("Structral Desgin"))
 actual_grid = [
-    [' ', ' ', ' ', 'h', 'y', 'p', 'e', 'r', 't', 'u', 'n', 'i', 'n', 'g', ' '], 
+    [' ', ' ', ' ', 'l', 'a', 'v', 'a', 'n', 'y', 'a', ' ', ' ', ' ', ' ', ' '], 
     [' ', ' ', ' ', ' ', 'p', 'r', 'o', 'g', 'r', 'a', 'm', ' ', ' ', ' ', ' '], 
     [' ', ' ', ' ', 'd', ' ', 'c', 'o', 'd', 'e', ' ', ' ', ' ', ' ', ' ', ' '], 
     [' ', ' ', ' ', 'e', ' ', ' ', ' ', ' ', ' ', 'a', ' ', ' ', 'o', ' ', ' '], 
